@@ -1,9 +1,10 @@
-import { QWidget, QListWidgetItem, QIcon } from "@nodegui/nodegui";
+import {QWidget, QListWidgetItem, QIcon, QVariant} from "@nodegui/nodegui";
 import { RNComponent } from "../config";
 
 export interface ListItemProps {
   title?: string;
   icon?: QIcon;
+  data?: string;
 }
 
 /**
@@ -20,6 +21,9 @@ export const setListItemProps = (
     },
     set icon(qicon: QIcon) {
       widget.setIcon(qicon);
+    },
+    set data(data: string) {
+      widget.setData(256, new QVariant(data));
     }
   };
   Object.assign(setter, newProps);
